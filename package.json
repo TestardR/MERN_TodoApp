@@ -1,13 +1,22 @@
 {
   "name": "TodoApp",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "repository": "https://github.com/TestardR/MERN_TodoApp.git",
   "author": "<rmtestard@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "node server.js",
+    "start-watch": "nodemon server.js",
+    "dev": "concurrently \"yarn run start-watch\" \"cd client && yarn start\""
+  },
   "dependencies": {
     "dotenv": "^7.0.0",
     "express": "^4.16.4",
-    "mongoose": "^5.4.19"
+    "mongoose": "^5.4.19",
+    "nodemon": "^1.18.10"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.0"
   }
 }
