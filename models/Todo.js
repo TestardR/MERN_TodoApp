@@ -5,11 +5,11 @@ const Schema = mongoose.Schema;
 const TodoSchema = new Schema({
   action: {
     type: String,
-    required: [true, 'The todo text field is required']
+    required: true
   }
 });
 
 //create model for todo
-const Todo = mongoose.model('todo', TodoSchema);
+const Todo = mongoose.model('todos', TodoSchema);
 
 module.exports = Todo;

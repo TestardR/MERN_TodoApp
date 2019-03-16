@@ -3,12 +3,16 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const path = require('path');
 
-const routes = require('./routes/api');
+const todos = require('./routes/api');
 require('dotenv').config();
 
 // Launch server
 const app = express();
 const port = process.env.PORT || 5000;
+
+// Body parser middleware
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // Connect to DB
 mongoose
@@ -16,11 +20,8 @@ mongoose
   .then(() => console.log(`Database connected successfully`))
   .catch(err => console.log(err));
 
-// Set up middleware
-app.use(bodyParser.json());
-
 // Set up path
-app.use('/api', routes);
+app.use('/api', todos);
 
 // app.use((req, res, next) => {
 //   res.header('Access-Control-Allow-Origin', '*');
