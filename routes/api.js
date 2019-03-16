@@ -7,7 +7,7 @@ const Todo = require('../models/todo');
 router.get('/todos', (req, res, next) => {
   Todo.find()
     .then(data => res.json(data))
-    .catch(netxt);
+    .catch(next);
 });
 
 // @route  POST api/todos
